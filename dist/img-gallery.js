@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("React"));
+		module.exports = factory(require("React"), require("ReactDOM"));
 	else if(typeof define === 'function' && define.amd)
-		define(["React"], factory);
+		define(["React", "ReactDOM"], factory);
 	else if(typeof exports === 'object')
-		exports["ImgGallery"] = factory(require("React"));
+		exports["ImgGallery"] = factory(require("React"), require("ReactDOM"));
 	else
-		root["ImgGallery"] = factory(root["React"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_2__) {
+		root["ImgGallery"] = factory(root["React"], root["ReactDOM"]);
+})(this, function(__WEBPACK_EXTERNAL_MODULE_2__, __WEBPACK_EXTERNAL_MODULE_3__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -85,17 +85,39 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _reactDom = __webpack_require__(3);
+	
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+	
 	exports['default'] = _react2['default'].createClass({
 	  displayName: 'ImgGallery',
-	
+	  propTypes: {
+	    id: _react2['default'].PropTypes.string,
+	    'class': _react2['default'].PropTypes.string,
+	    images: _react2['default'].PropTypes.array.isRequired,
+	    columns: _react2['default'].PropTypes.number,
+	    styles: _react2['default'].PropTypes.object
+	  },
+	  getDefaultProps: function getDefaultProps() {
+	    return {
+	      images: [],
+	      columns: 3
+	    };
+	  },
 	  render: function render() {
+	    var images = [];
+	    this.props.images.forEach(function (image, index) {
+	      images.push(_react2['default'].DOM.img({ key: index, className: 'image-instance', src: image.src }, null));
+	    });
+	
+	    console.log(images);
+	
 	    return _react2['default'].createElement(
 	      'div',
-	      null,
-	      'ImgGallery'
+	      { id: this.props.id, className: 'img-gallery ' + this.props['class'], styles: this.props.styles },
+	      images
 	    );
 	  }
-	
 	});
 	module.exports = exports['default'];
 
@@ -104,6 +126,12 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports) {
 
 	module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
+
+/***/ },
+/* 3 */
+/***/ function(module, exports) {
+
+	module.exports = __WEBPACK_EXTERNAL_MODULE_3__;
 
 /***/ }
 /******/ ])
