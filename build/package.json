@@ -1,0 +1,40 @@
+{
+  "name": "img-gallery",
+  "version": "0.0.1",
+  "description": "Responsive image gallery",
+  "main": "./lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dschoon/img-gallery.git"
+  },
+  "homepage": "https://github.com/dschoon/img-gallery",
+  "bugs": "https://github.com/dschoon/img-gallery/issues",
+  "directories": {
+    "example": "examples"
+  },
+  "authors": [
+    "Dan Schoonmaker"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "0.14.0"
+  },
+  "tags": [
+    "React",
+    "Image",
+    "Photo",
+    "Gallery",
+    "Responsive",
+    "Masonry",
+    "Grid"
+  ],
+  "keywords": [
+    "React",
+    "Image",
+    "Photo",
+    "Gallery",
+    "Responsive",
+    "Masonry",
+    "Grid"
+  ]
+}
