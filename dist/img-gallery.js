@@ -94,27 +94,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	  propTypes: {
 	    id: _react2['default'].PropTypes.string,
 	    'class': _react2['default'].PropTypes.string,
-	    images: _react2['default'].PropTypes.array.isRequired,
-	    columns: _react2['default'].PropTypes.number,
-	    styles: _react2['default'].PropTypes.object
+	    images: _react2['default'].PropTypes.array.isRequired
 	  },
 	  getDefaultProps: function getDefaultProps() {
 	    return {
-	      images: [],
-	      columns: 3
+	      id: '',
+	      'class': '',
+	      images: []
 	    };
 	  },
 	  render: function render() {
 	    var images = [];
 	    this.props.images.forEach(function (image, index) {
-	      images.push(_react2['default'].DOM.img({ key: index, className: 'image-instance', src: image.src }, null));
+	      images.push(_react2['default'].DOM.a({ href: image.src }, _react2['default'].DOM.img({ key: index, className: 'img-instance', src: image.src }, null)));
 	    });
-	
-	    console.log(images);
 	
 	    return _react2['default'].createElement(
 	      'div',
-	      { id: this.props.id, className: 'img-gallery ' + this.props['class'], styles: this.props.styles },
+	      { id: this.props.id, className: 'img-gallery ' + this.props['class'] },
 	      images
 	    );
 	  }
